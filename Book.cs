@@ -40,3 +40,4 @@ public class Book
         return searchQuery == Title || searchQuery == Author;
     }
 }
+
