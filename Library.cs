@@ -32,14 +32,20 @@ public class Library
                 return i;
             }
         }
-            return -1;   // I still dont understand this part !!!!!!!!!!!!!!!!!!!!!!!
+        return -1;   // I still dont understand this part !!!!!!!!!!!!!!!!!!!!!!!
     }
     public void RemoveBook(string isbn)
     {
         // first find the index
         int indexOfBook = FindIndexOfBook(isbn);
         // once i have the index
-        books.RemoveAt(indexOfBook);
-
+        if (indexOfBook == -1)
+        {
+            Console.WriteLine("ISBN bestaat niet, geen boeken verwijderd. Type een correcte ISBN in");
+        }
+        else
+        {
+            books.RemoveAt(indexOfBook);
+        }
     }
 }

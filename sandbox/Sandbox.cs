@@ -66,3 +66,8 @@ library1.CountBooks();
 // Test AddBook()
 
 Library bibliotheekRotterdam = new Library();
+
+// Test RemoveBook() by Year
+library1.RemoveBook("9780441172719");
+
+
