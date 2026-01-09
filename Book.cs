@@ -1,3 +1,5 @@
+namespace BibliotheekbeheerSysteem;
+
 public class Book
 {
     public string Title { get; private set; }
