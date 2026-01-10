@@ -4,7 +4,8 @@ It is not used in the final application.
 */
 
 /* ###################################################################################################### */
-// Book class
+//                                  Book class
+/* ###################################################################################################### */
 using System.Threading.Tasks.Dataflow;
 
 Book book1  = new Book("Foundation", "Isaac Asimov", "9780553293357", 1951, "sifi");
@@ -42,7 +43,8 @@ bool matchTitle = book1.IsMatch(userQueryTitle);
 Console.WriteLine(matchTitle);
 
 /* ###################################################################################################### */
-// Library class
+//                                      Library class
+/* ###################################################################################################### */
 
 /*
  public void CountBooks()
@@ -70,4 +72,18 @@ Library bibliotheekRotterdam = new Library();
 // Test RemoveBook() by Year
 library1.RemoveBook("9780441172719");
 
+
+// User input for removing book by ISBN
+Console.WriteLine("Type de ISBN in om een boek te verwijderen.");
+string userInputIsbn = Console.ReadLine();
+
+// Test RemoveBook() by Year
+library1.RemoveBook(userInputIsbn);
+
+// Show all books after deleting book by ISBN.
+library1.ListBooks();
+
+
+/* ###################################################################################################### */
+/* ###################################################################################################### */
 

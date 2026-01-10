@@ -3,7 +3,7 @@ namespace BibliotheekbeheerSysteem;
 
 public class Library
 {
-    public List<Book> books = new List<Book>();
+    private List<Book> books = new List<Book>();
 
     public void AddBook(Book book)
     {
@@ -32,7 +32,7 @@ public class Library
                 return i;
             }
         }
-        return -1;   // I still dont understand this part !!!!!!!!!!!!!!!!!!!!!!!
+        return -1;
     }
     public void RemoveBook(string isbn)
     {
@@ -47,5 +47,11 @@ public class Library
         {
             books.RemoveAt(indexOfBook);
         }
+    }
+
+    public List<Book> SearchBooks(string title)
+    {
+        var SearchResultByTitle = from b in books where b.Title.Contains(title) select b;
+        return SearchResultByTitle.ToList();
     }
 }

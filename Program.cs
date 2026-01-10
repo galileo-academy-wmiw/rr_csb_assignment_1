@@ -14,14 +14,7 @@ library1.AddBook(book3);
 // Show all books
 library1.ListBooks();
 
-// User input for removing book by ISBN
-Console.WriteLine("Type de ISBN in om een boek te verwijderen.");
-string userInputIsbn = Console.ReadLine();
-
-// Test RemoveBook() by Year
-library1.RemoveBook(userInputIsbn);
-
-// Show all books after deleting book by ISBN.
-library1.ListBooks();
+// Test SearchBooksbyTitle(string title)
+Console.WriteLine(library1.SearchBooks("1984"));
 
 
