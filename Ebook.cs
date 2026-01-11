@@ -8,5 +8,9 @@ public class Ebook : Book
     {
         this. FileSize = fileSize;
     }
-    
+
+    public override void DisplayDetails()
+    {
+        Console.WriteLine($"-\nTitle:            {Title}\nAuthor:           {Author}\nISBN:             {ISBN}\nPublication Year: {PublicationYear}\nFileSize: {FileSize} MB");
+    }
 }
