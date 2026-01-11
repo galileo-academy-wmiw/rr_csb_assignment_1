@@ -1,6 +1,6 @@
 namespace BibliotheekbeheerSysteem;
 
-public class Book
+public class Book : IReadable 
 {
     public string Title { get; private set; }
 
@@ -21,9 +21,9 @@ public class Book
         Genre = genre;
     }
 
-    public Book(string title)
+    public Book()
     {
-        Title = title;
+        Title = "Unknown";
         Author = "Unknown";
         ISBN = " ISBN";
         PublicationYear = 0;
@@ -31,7 +31,7 @@ public class Book
     }
 
     // Prints the details of this book to the console.
-    public void DisplayDetails()
+    public virtual void DisplayDetails()
     {
         Console.WriteLine("Book details");
         Console.WriteLine($"-\nTitle:            {Title}\nAuthor:           {Author}\nISBN:             {ISBN}\nPublication Year: {PublicationYear}\n-");
@@ -40,6 +40,12 @@ public class Book
     public bool IsMatch(string searchQuery)
     {
         return searchQuery == Title || searchQuery == Author;
+    }
+
+    // Implementing Interface member method Read()
+    public void Read()
+    {
+        Console.WriteLine($"{Title} is currently being read inside the library.");
     }
 }
 

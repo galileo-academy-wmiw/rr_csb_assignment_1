@@ -54,4 +54,14 @@ public class Library
         var SearchResultByTitle = from b in books where b.Title.Contains(title) select b;
         return SearchResultByTitle.ToList();
     }
+
+    // Helper method for prettify the result.
+    public void prettify(List<Book> searchResult)
+    {
+        foreach (var item in searchResult)
+        {
+            item.DisplayDetails();
+        }
+    }
 }
+

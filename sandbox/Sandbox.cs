@@ -6,11 +6,14 @@ It is not used in the final application.
 /* ###################################################################################################### */
 //                                  Book class
 /* ###################################################################################################### */
+using System.Collections.Concurrent;
+using System.Linq.Expressions;
 using System.Threading.Tasks.Dataflow;
 
 Book book1  = new Book("Foundation", "Isaac Asimov", "9780553293357", 1951, "sifi");
 Book book2  = new Book("Dune", "Frank Herbert", "9780441172719", 1965, "sifi");
 Book book3  = new Book("1984", "George Orwell", "9780451524935", 1949, "sifi");
+Ebook eBook1 = new Ebook("Neuromancer", "William Gibson", "9780441569595", 1984, "sci-fi", 10);
 
 // Test AddBook()
 Library library1 = new Library();
@@ -83,7 +86,20 @@ library1.RemoveBook(userInputIsbn);
 // Show all books after deleting book by ISBN.
 library1.ListBooks();
 
+// Test SearchBooksbyTitle(string title)
+// Console.WriteLine(library1.SearchBooks("1984"));
+List<Book> searchResult = library1.SearchBooks("1984");
+library1.prettify(searchResult);
 
-/* ###################################################################################################### */
-/* ###################################################################################################### */
+
+/* ###################################################################################################### 
+//                                    IReadable Interface
+###################################################################################################### */
+
+
+/* ###################################################################################################### 
+//                                    Ebook class
+###################################################################################################### */
+// Test DisplayDetails() for Ebook.
+
 

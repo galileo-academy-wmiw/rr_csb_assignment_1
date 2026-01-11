@@ -12,9 +12,11 @@ library1.AddBook(book2);
 library1.AddBook(book3);
 
 // Show all books
-library1.ListBooks();
+// library1.ListBooks();
 
 // Test SearchBooksbyTitle(string title)
-Console.WriteLine(library1.SearchBooks("1984"));
+// Console.WriteLine(library1.SearchBooks("1984"));
 
-
+List<Book> searchResult = library1.SearchBooks("1984");
+library1.prettify(searchResult);
+book1.Read();
