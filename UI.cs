@@ -43,7 +43,16 @@ public class UI(Library libraryParameter) : IDisplayable
             {
                 Console.WriteLine("Type the title of the Book or name of the Author.");
                 string query = Console.ReadLine();
-                Library.SearchBooks(query);
+
+                var results =  Library.SearchBooks(query);
+
+                if (results.Count == 0)
+                {
+                    Console.WriteLine("No match found");
+                } else
+                {
+                Library.prettify(results);
+                }
             }
             else if (userInputMenu == "4")
             {
