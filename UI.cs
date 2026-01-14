@@ -15,7 +15,7 @@ public class UI(Library libraryParameter) : IDisplayable
         Console.WriteLine("[1] Add book.\n[2] Delete book.\n[3] Search Book.\n[4] Display all books.\n[5] Close Program");
     }
 
-    public void GetUserInput()
+    public void Run()
     {
         bool isRunning = true;
 
@@ -42,7 +42,8 @@ public class UI(Library libraryParameter) : IDisplayable
             else if (userInputMenu == "3")
             {
                 Console.WriteLine("Type the title of the Book or name of the Author.");
-
+                string query = Console.ReadLine();
+                Library.SearchBooks(query);
             }
             else if (userInputMenu == "4")
             {
@@ -56,19 +57,14 @@ public class UI(Library libraryParameter) : IDisplayable
 
             else { Console.WriteLine("invalid option please enter a option from 1 , 2 3, or 5 "); }
 
-            
-        if (isRunning)
-        {
-            Console.WriteLine();
-            Console.WriteLine("Press ENTER to return to the main menu...");
-            Console.ReadLine();
-        }
-        }
-    }
 
-    public void Run()
-    {
-
+            if (isRunning)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Press ENTER to return to the main menu...");
+                Console.ReadLine();
+            }
+        }
     }
 
     // helper method for adding user book. 
