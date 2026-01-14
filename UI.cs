@@ -17,52 +17,53 @@ public class UI(Library libraryParameter) : IDisplayable
 
     public void GetUserInput()
     {
-        string userInputMenu = Console.ReadLine();
-        if (userInputMenu == "1")
-        {
-            addUserBook();
+        bool isRunning = true;
 
-        }
-        else if (userInputMenu == "2")
+        while (isRunning)
         {
-            Library.ListBooks();
-            Console.WriteLine("type the number of book you want to delete.");
-            int userInputBookNumber;
-            while (!int.TryParse(Console.ReadLine(), out userInputBookNumber))
+            DisplayMenu();
+            string userInputMenu = Console.ReadLine();
+
+            if (userInputMenu == "1")
             {
-                Console.WriteLine("Please enter a valid number:");
+                addUserBook();
+            }
+            else if (userInputMenu == "2")
+            {
+                Library.ListBooks();
+                Console.WriteLine("type the number of book you want to delete.");
+                int userInputBookNumber;
+                while (!int.TryParse(Console.ReadLine(), out userInputBookNumber))
+                {
+                    Console.WriteLine("Please enter a valid number:");
+                }
+
+            }
+            else if (userInputMenu == "3")
+            {
+                Console.WriteLine("Type the title of the Book or name of the Author.");
+
+            }
+            else if (userInputMenu == "4")
+            {
+                Library.ListBooks();
+            }
+            else if (userInputMenu == "5")
+            {
+                Console.WriteLine("Closing program. Goodbye!");
+                isRunning = false;
             }
 
-        }
-        else if (userInputMenu == "3")
+            else { Console.WriteLine("invalid option please enter a option from 1 , 2 3, or 5 "); }
+
+            
+        if (isRunning)
         {
-            Console.WriteLine("test mmsg: showing search result");
+            Console.WriteLine();
+            Console.WriteLine("Press ENTER to return to the main menu...");
+            Console.ReadLine();
         }
-        else if (userInputMenu == "4")
-        {
-            Library.ListBooks();
         }
-        else if (userInputMenu == "5") { Console.WriteLine(" test mssg: closing program"); }
-        else { Console.WriteLine("test mmsg: invalid option"); }
-
-        // ask the user to go back to Main menu.
-        string userInputShowMenu;
-
-        do
-        {
-            Console.WriteLine("Type [ 0 ] to go back to main menu");
-            userInputShowMenu = Console.ReadLine();
-
-            if (userInputShowMenu != "0")
-            {
-                Console.WriteLine("Invalid input");
-            }
-
-        } while (userInputShowMenu != "0");
-
-        DisplayMenu();
-        GetUserInput();
-
     }
 
     public void Run()
