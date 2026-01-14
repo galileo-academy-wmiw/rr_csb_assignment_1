@@ -8,7 +8,10 @@ public class UI(Library libraryParameter) : IDisplayable
 
     public void DisplayMenu()
     {
-        Console.WriteLine("Select an option");
+        Console.WriteLine("=================================");
+        Console.WriteLine("   Library Management System");
+        Console.WriteLine("=================================");
+        Console.WriteLine("Please select an option");
         Console.WriteLine("[1] Add book.\n[2] Delete book.\n[3] Search Book.\n[4] Display all books.\n[5] Close Program");
     }
 
@@ -18,8 +21,19 @@ public class UI(Library libraryParameter) : IDisplayable
         if (userInputMenu == "1")
         {
             addUserBook();
+
         }
-        else if (userInputMenu == "2") { Console.WriteLine("test mssg: deleted 1 book"); }
+        else if (userInputMenu == "2")
+        {
+            Library.ListBooks();
+            Console.WriteLine("type the number of book you want to delete.");
+            int userInputBookNumber;
+            while (!int.TryParse(Console.ReadLine(), out userInputBookNumber))
+            {
+                Console.WriteLine("Please enter a valid number:");
+            }
+
+        }
         else if (userInputMenu == "3")
         {
             Console.WriteLine("test mmsg: showing search result");
@@ -30,11 +44,30 @@ public class UI(Library libraryParameter) : IDisplayable
         }
         else if (userInputMenu == "5") { Console.WriteLine(" test mssg: closing program"); }
         else { Console.WriteLine("test mmsg: invalid option"); }
+
+        // ask the user to go back to Main menu.
+        string userInputShowMenu;
+
+        do
+        {
+            Console.WriteLine("Type [ 0 ] to go back to main menu");
+            userInputShowMenu = Console.ReadLine();
+
+            if (userInputShowMenu != "0")
+            {
+                Console.WriteLine("Invalid input");
+            }
+
+        } while (userInputShowMenu != "0");
+
+        DisplayMenu();
+        GetUserInput();
+
     }
 
     public void Run()
     {
-        
+
     }
 
     // helper method for adding user book. 
@@ -62,7 +95,7 @@ public class UI(Library libraryParameter) : IDisplayable
 
         Book userbook = new Book(title, author, isbn, year, genre);
         libraryParameter.AddBook(userbook);
-        
+
         Console.WriteLine("Your book has been added to the library Rotterdam.");
         userbook.DisplayDetails();
 
