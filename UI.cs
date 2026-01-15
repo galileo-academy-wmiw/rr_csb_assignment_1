@@ -26,18 +26,15 @@ public class UI(Library libraryParameter) : IDisplayable
 
             if (userInputMenu == "1")
             {
-                addUserBook();
+                AddUserBook();
             }
             else if (userInputMenu == "2")
             {
                 Library.ListBooks();
-                Console.WriteLine("type the number of book you want to delete.");
-                int userInputBookNumber;
-                while (!int.TryParse(Console.ReadLine(), out userInputBookNumber))
-                {
-                    Console.WriteLine("Please enter a valid number:");
-                }
-
+                Console.WriteLine("type the ISBN of book you want to delete.");
+                string userInputIsbn = Console.ReadLine();
+                
+                Library.RemoveBook(userInputIsbn);
             }
             else if (userInputMenu == "3")
             {
@@ -77,7 +74,7 @@ public class UI(Library libraryParameter) : IDisplayable
     }
 
     // helper method for adding user book. 
-    public void addUserBook()
+    public void AddUserBook()
     {
         Console.WriteLine("enter a title");
         string title = Console.ReadLine();
