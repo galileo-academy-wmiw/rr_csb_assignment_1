@@ -9,7 +9,6 @@ public class Library
     {
         books.Add(book);
     }
-    // Show all books. Sorted by title !!
     public void ListBooks()
     {
         Console.WriteLine("**** Display All Books ***");
@@ -19,12 +18,8 @@ public class Library
         }
     }
 
-    // test method: count List 
-
-
     public int FindIndexOfBook(string isbn)
     {
-        // books.Find();
         for (int i = 0; i < books.Count; i++)
         {
             if (isbn == books[i].ISBN)
@@ -36,9 +31,7 @@ public class Library
     }
     public void RemoveBook(string isbn)
     {
-        // first find the index
         int indexOfBook = FindIndexOfBook(isbn);
-        // once i have the index
         if (indexOfBook == -1)
         {
             Console.WriteLine("ISBN bestaat niet, geen boeken verwijderd. Type een correcte ISBN in");
